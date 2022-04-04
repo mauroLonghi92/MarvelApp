@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="characters_card_margin">5dp</dimen>
+    <dimen name="characters_card_padding">15dp</dimen>
+    <dimen name="characters_card_corner_radius">5dp</dimen>
+    <dimen name="characters_card_title_marginTop">15dp</dimen>
+
+    <dimen name="characters_title_height">55dp</dimen>
+</resources>

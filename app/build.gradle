@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.marvelapp"
+        minSdk 27
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "PRIVATE_API_KEY_VALUE", '"a2ee1bb5e8531a54391f5b68b0ae12e5cd0bef9a"'
+            buildConfigField "String", "PUBLIC_API_KEY_VALUE", '"5d66deec5f8c62906bb93270ed4cf2d0"'
+            buildConfigField "String", "MARVEL_BASE_URL", '"http://gateway.marvel.com/public/"'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "PRIVATE_API_KEY_VALUE", '"a2ee1bb5e8531a54391f5b68b0ae12e5cd0bef9a"'
+            buildConfigField "String", "PUBLIC_API_KEY_VALUE", '"5d66deec5f8c62906bb93270ed4cf2d0"'
+            buildConfigField "String", "MARVEL_BASE_URL", '"http://gateway.marvel.com/v1/public/"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':domain')
+    implementation project(path: ':di')
+
+    def lib = rootProject.ext.generalDependencies
+    implementation lib.kotlin
+    implementation lib.appcompat
+    implementation lib.corektx
+    implementation lib.constraintlayout
+    implementation lib.coroutines
+    implementation lib.koinviewmodel
+    implementation lib.androidxlifecycle
+    implementation lib.androidxviewmodel
+    testImplementation lib.kotlinxcoroutinestest
+    testImplementation lib.coretest
+    testImplementation lib.mockitokotlin2
+    testImplementation lib.mockitocore
+    testImplementation lib.mockitoinline
+    testImplementation lib.junit
+    implementation lib.recyclerview
+    implementation lib.cardview
+    implementation lib.glide
+    androidTestImplementation 'org.mockito:mockito-android:3.10.0'
+}

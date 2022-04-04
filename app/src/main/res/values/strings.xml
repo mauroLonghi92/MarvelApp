@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MarvelApp</string>
+    <string name="characters_activity_title">Marvel Characters</string>
+</resources>
